@@ -16,7 +16,7 @@ class CreateReferencesTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->string('description', 100);
-			$table->string('url', 2000)->nullable();
+			$table->string('url', 2000)->nullable()->default('NULL');
 		});
 	}
 
