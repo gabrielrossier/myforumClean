@@ -19,6 +19,6 @@ class Reference extends Model
      */
     public function opinions()
     {
-        return $this->belongsToMany(Opinion::class,'opinion_reference','reference_id','opinion_id'); // here we specify table and keys because the order of the fields in the table does not comply with the convention
+        return $this->belongsToMany(Opinion::class); // here we specify table and keys because the order of the fields in the table does not comply with the convention
     }
 }
