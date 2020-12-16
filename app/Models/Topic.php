@@ -22,4 +22,18 @@ class Topic extends Model
     {
         return $this->hasMany(Opinion::class);
     }
+
+    /**
+     * The user who submitted the topic
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function forumuser()
+    {
+        return $this->belongsTo(ForumUser::class);
+    }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
 }

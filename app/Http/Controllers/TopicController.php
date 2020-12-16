@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ForumUser;
+use App\Models\State;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 
@@ -36,7 +38,16 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $themeid = $request->input('theme');
+        $newtopic = new Topic();
+        // record the topic's description
+        $newtopic->description = $request->input('newtop');
+        $newtopic->forumuser()->associate(ForumUser::all()->random()); // TODO assign the user that is logged in when authentication is in place
+        $initialstate = State::where('slug','PROPOSED')->first();
+        $newtopic->state()->associate($initialstate);
+        $newtopic->theme()->associate($themeid);
+        $newtopic->save();
+        return redirect(route('themes.show',$themeid))->with('message','Sujet ajouté');
     }
 
     /**
