@@ -5,21 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Opinion extends Model
+class ForumUser extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
+    public $table = "forumusers"; // otherwise Eloquent will look for 'forum_user', because of the 'U' inside ForumUser
+
     // ============= Relationships
 
-    public function topic()
+    public function opinions()
     {
-        return $this->belongsTo(Opinion::class);
+        return $this->hasMany(Opinion::class);
     }
 
-    public function forumuser()
-    {
-        return $this->belongsTo(ForumUser::class);
-    }
 }

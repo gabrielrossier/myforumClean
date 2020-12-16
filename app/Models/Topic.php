@@ -17,4 +17,9 @@ class Topic extends Model
     {
         return $this->belongsTo(Theme::class);
     }
+
+    public function opinions()
+    {
+        return $this->hasMany(Opinion::class);
+    }
 }
