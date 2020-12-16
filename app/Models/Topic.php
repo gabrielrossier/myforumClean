@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Theme extends Model
+class Topic extends Model
 {
     use HasFactory;
 
@@ -13,9 +13,8 @@ class Theme extends Model
 
     // ============= Relationships
 
-    public function topics()
+    public function theme()
     {
-        return $this->hasMany(Topic::class);
+        return $this->belongsTo(Theme::class);
     }
-
 }
