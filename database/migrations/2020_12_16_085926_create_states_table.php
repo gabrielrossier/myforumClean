@@ -15,7 +15,8 @@ class CreateStatesTable extends Migration {
 		Schema::create('states', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->string('name', 45)->unique('name_UNIQUE');
+            $table->string('slug', 10)->unique('slug_UNIQUE');
+            $table->string('name', 45)->unique('name_UNIQUE');
 		});
 	}
 
