@@ -18,8 +18,17 @@ class Opinion extends Model
         return $this->belongsTo(Opinion::class);
     }
 
+    /**
+     * The user who emitted the opinion
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function forumuser()
     {
         return $this->belongsTo(ForumUser::class);
+    }
+
+    public function references()
+    {
+        return $this->belongsToMany(Reference::class,'opinion_reference','reference_id','opinion_id'); // here we specify table and keys because the order of the fields in the table does not comply with the convention
     }
 }
