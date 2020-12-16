@@ -17,7 +17,7 @@ use App\Http\Controllers\StateController;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 Route::Resource('opinions',OpinionController::class);
 Route::Resource('references',ReferenceController::class);
