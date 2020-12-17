@@ -2,6 +2,7 @@
 
 @section ('content')
     <h3 class="p-2">Discussion autour du sujet "{{ $topic->description }}" dans le cadre du thème {{ $topic->theme->name }}:</h3>
+    <div class="small mb-3">Proposé par {{ $topic->forumuser->pseudo }}</div>
     @forelse ($topic->opinions as $opinion)
         <div class="p-2 ml-2">
             ({{ $opinion->forumuser->first_name }})
