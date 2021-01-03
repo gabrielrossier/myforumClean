@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\OpinionController;
+use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\ReferenceController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StateController;
+use App\Http\Controllers\TopicController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@index');
+
+Route::Resource('opinions',OpinionController::class);
+Route::Resource('references',ReferenceController::class);
+Route::Resource('roles',RoleController::class);
+Route::Resource('states',StateController::class);
+Route::Resource('themes',ThemeController::class);
+Route::Resource('topics',TopicController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
