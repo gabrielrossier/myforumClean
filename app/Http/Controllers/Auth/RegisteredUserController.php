@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\ForumUser;
-use App\Models\Role;
 use App\Models\User;
+use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -42,7 +41,7 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-        Auth::login($user = ForumUser::create([
+        Auth::login($user = User::create([
             'pseudo' => $request->pseudo,
             'first_name' => $request->firstname,
             'last_name' => $request->lastname,

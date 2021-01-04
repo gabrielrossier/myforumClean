@@ -2,10 +2,10 @@
 
 @section ('content')
     <h3 class="p-2">Discussion autour du sujet "{{ $topic->description }}" dans le cadre du thème {{ $topic->theme->name }}:</h3>
-    <div class="small mb-3">Proposé par {{ $topic->forumuser->pseudo }}</div>
+    <div class="small mb-3">Proposé par {{ $topic->user->pseudo }}</div>
     @forelse ($topic->opinions as $opinion)
         <div class="p-2 ml-2">
-            ({{ $opinion->forumuser->first_name }})
+            ({{ $opinion->user->first_name }})
             {{ $opinion->description }}
             @if($opinion->references->count() > 0)
                 <div id="accordion{{ $opinion->id }}" class="small grey-text">

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/assets/mdbootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/assets/mdbootstrap/css/mdb.css">
     <link rel="stylesheet" href="/assets/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="/css/app.css">
     <script src="/assets/mdbootstrap/js/jquery.js"></script>
     <script src="/assets/mdbootstrap/js/bootstrap.js"></script>
     <script src="/assets/mdbootstrap/js/popper.js"></script>
@@ -14,13 +14,13 @@
     @stack('scripts')
 </head>
 <body>
-<div class="w-100 bg-primary font-weight-bolder p-5 navbar"><a class="text-reset" href="/"><h1>My Forum</h1></a></div>
+<div class="w-100 bg-primary font-weight-bolder p-3 navbar"><a class="text-reset title" href="/">My Forum</a></div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="navbar-nav mr-auto">
         @if (Auth::user())
             <form method="post" class="nav-item" action="{{ route('logout') }}">
                 @csrf
-                <button type=submit class="btn success-color">Logout {{ Auth::user()->name }}</button>
+                <button type=submit class="btn success-color">Logout {{ Auth::user()->pseudo }}</button>
             </form>
         @else
             <li class="nav-item"><a href="{{ route('login') }}" class="btn danger-color">Login</a></li>

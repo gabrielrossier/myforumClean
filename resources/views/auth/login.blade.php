@@ -1,4 +1,6 @@
-<x-guest-layout>
+@extends ('layout')
+
+@section ('content')
     <x-auth-card>
         <x-slot name="logo">
         </x-slot>
@@ -47,4 +49,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+@endsection

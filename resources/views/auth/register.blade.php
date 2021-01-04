@@ -1,4 +1,6 @@
-<x-guest-layout>
+@extends ('layout')
+
+@section ('content')
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -11,7 +13,7 @@
         <form method="POST" action="{{ route('register') }}">
         @csrf
 
-            <!-- User Name -->
+        <!-- User Name -->
             <div>
                 <label for="pseudo">Nom d'utilisateur</label>
 
@@ -69,4 +71,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+@endsection
