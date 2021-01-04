@@ -6,23 +6,37 @@
         </x-slot>
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <x-auth-validation-errors class="mb-4" :errors="$errors"/>
 
         <form method="POST" action="{{ route('register') }}">
-            @csrf
+        @csrf
 
-            <!-- Name -->
+            <!-- User Name -->
             <div>
-                <label for="name">Nom d'utilisateur</label>
+                <label for="pseudo">Nom d'utilisateur</label>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="pseudo" class="block mt-1 w-full" type="text" name="pseudo" :value="old('pseudo')" required autofocus/>
+            </div>
+
+            <!-- First Name -->
+            <div>
+                <label for="firstname">Prénom</label>
+
+                <x-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required/>
+            </div>
+
+            <!-- Last Name -->
+            <div>
+                <label for="lastname">Nom</label>
+
+                <x-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required/>
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
                 <label for="email">Email</label>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required/>
             </div>
 
             <!-- Password -->
@@ -30,9 +44,9 @@
                 <label for="password">Mot de passe</label>
 
                 <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+                         type="password"
+                         name="password"
+                         required autocomplete="new-password"/>
             </div>
 
             <!-- Confirm Password -->
@@ -40,8 +54,8 @@
                 <label for="password_confirmation">Confirmation</label>
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+                         type="password"
+                         name="password_confirmation" required/>
             </div>
 
             <div class="flex items-center justify-end mt-4">
