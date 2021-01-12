@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OpinionController;
 use App\Http\Controllers\ThemeController;
@@ -22,16 +23,14 @@ use App\Http\Controllers\TopicController;
 
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 
-Route::Resource('opinions',OpinionController::class);
-Route::post('opinions/comment/',[OpinionController::class,'newComment'])->name('opinions.comment');
-Route::Resource('references',ReferenceController::class);
-Route::Resource('roles',RoleController::class);
-Route::Resource('states',StateController::class);
-Route::Resource('themes',ThemeController::class);
-Route::Resource('topics',TopicController::class);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::Resource('opinions', OpinionController::class);
+    Route::post('opinions/comment/', [OpinionController::class, 'newComment'])->name('opinions.comment');
+    Route::Resource('references', ReferenceController::class);
+    Route::Resource('roles', RoleController::class);
+    Route::Resource('states', StateController::class);
+    Route::Resource('themes', ThemeController::class);
+    Route::Resource('topics', TopicController::class);
+});
 
 require __DIR__.'/auth.php';
