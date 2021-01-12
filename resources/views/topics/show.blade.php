@@ -19,6 +19,15 @@
                     </div>
                 </div>
             @endif
+            @if($opinion->comments->count() > 0)
+                <div class="small ml-3">
+                    <div>
+                        @foreach ($opinion->comments as $comment)
+                            <div class="p-1">{{ $comment->pseudo }}: {{ $comment->pivot->comment }}, {{ $comment->pivot->points }}pts</div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
         </div>
     @empty
         <p>(Aucune opinion n'a été soumise pour l'instant sur ce sujet)</p>
