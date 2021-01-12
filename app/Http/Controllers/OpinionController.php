@@ -84,6 +84,11 @@ class OpinionController extends Controller
         //
     }
 
+    /**
+     * Add a comment to an opinion
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function newComment(Request $request)
     {
         $opinion = Opinion::find($request->input('opinion'));
