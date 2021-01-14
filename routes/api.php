@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ReferenceController;
+use App\Http\Controllers\API\ThemeController;
+use \App\Http\Controllers\API\TopicController;
+use \App\Http\Controllers\API\OpinionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resources([
     'references' => ReferenceController::class,
+    'categories' => ThemeController::class,
+    'topics' => TopicController::class,
+    'questions' => OpinionController::class
 ]);
