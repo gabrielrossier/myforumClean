@@ -4,7 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TopicResource;
-use App\Http\Resources\TopicResourceCollection;
+use App\Http\Resources\ResourceCollection;
+use App\Http\Resources\OpinionResourceCollection;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 
@@ -40,6 +41,16 @@ class TopicController extends Controller
     public function show($id)
     {
         return new TopicResource(Topic::find($id));
+    }
+
+    /**
+     * Returns the opinions associated to the given topic
+     * @param $id
+     * @return TopicResourceCollection
+     */
+    public function opinions($id)
+    {
+        return new OpinionResourceCollection(Topic::find($id)->opinions);
     }
 
     /**

@@ -28,3 +28,6 @@ Route::resources([
     'topics' => TopicController::class,
     'questions' => OpinionController::class
 ]);
+
+Route::get('topics/oftheme/{id}',[ThemeController::class,'topics']);
+Route::get('messages/oftopic/{id}',[TopicController::class,'opinions']);

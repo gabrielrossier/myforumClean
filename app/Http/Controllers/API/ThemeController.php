@@ -5,7 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ThemeResource;
 use App\Http\Resources\ThemeResourceCollection;
+use App\Http\Resources\TopicResourceCollection;
 use App\Models\Theme;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class ThemeController extends Controller
@@ -40,6 +42,16 @@ class ThemeController extends Controller
     public function show($id)
     {
         return new ThemeResource(Theme::find($id));
+    }
+
+    /**
+     * Returns the topics associated to the given theme
+     * @param $id
+     * @return TopicResourceCollection
+     */
+    public function topics($id)
+    {
+        return new TopicResourceCollection(Theme::find($id)->topics);
     }
 
     /**
