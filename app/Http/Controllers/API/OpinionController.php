@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CommentResourceCollection;
 use App\Http\Resources\OpinionResource;
 use App\Http\Resources\OpinionResourceCollection;
 use App\Models\Opinion;
@@ -40,6 +41,23 @@ class OpinionController extends Controller
     public function show($id)
     {
         return new OpinionResource(Opinion::find($id));
+    }
+
+    /**
+     * Returns the comments made on the given opinion
+     * @param $id
+     * @return CommentResourceCollection
+     */
+    public function comments($id)
+    {
+        foreach (Opinion::find($id)->comments as $comment) {
+            $res[] = [
+                'by' => $comment->pseudo,
+                'text' => $comment->pivot->comment,
+                'points' => $comment->pivot->points
+            ];
+        }
+        return new CommentResourceCollection($res);
     }
 
     /**
