@@ -26,7 +26,7 @@ Route::resources([
     'references' => ReferenceController::class,
     'categories' => ThemeController::class,
     'topics' => TopicController::class,
-    'questions' => OpinionController::class
+    'messages' => OpinionController::class
 ]);
 
 Route::get('topics/oftheme/{id}',[ThemeController::class,'topics']);
