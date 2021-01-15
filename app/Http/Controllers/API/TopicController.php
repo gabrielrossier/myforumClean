@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TopicResource;
 use App\Http\Resources\ResourceCollection;
-use App\Http\Resources\OpinionResourceCollection;
+use App\Http\Resources\TopicResourceCollection;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 
