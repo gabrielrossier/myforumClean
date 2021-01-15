@@ -29,6 +29,6 @@ Route::resources([
     'messages' => OpinionController::class
 ]);
 
-Route::get('topics/oftheme/{id}',[ThemeController::class,'topics']);
+Route::get('topics/ofcategory/{id}',[ThemeController::class,'topics']);
 Route::get('messages/oftopic/{id}',[TopicController::class,'opinions']);
 Route::get('replies/tomessage/{id}',[OpinionController::class,'comments']);
