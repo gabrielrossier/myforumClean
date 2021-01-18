@@ -101,4 +101,9 @@ class OpinionPolicy
     {
         return $user->opinions->count() > config('app.min_opinions_for_comments');
     }
+
+    public function commentOpinion(User $user, Opinion $opinion)
+    {
+        return preg_match('/\@'.$user->pseudo.'/i',$opinion->description);
+    }
 }
