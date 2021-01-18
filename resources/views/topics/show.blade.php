@@ -28,6 +28,7 @@
                     </div>
                 </div>
             @endif
+            @can('comment',\App\Models\Opinion::class)
             <div id="accordionnew{{ $opinion->id }}">
                 <button class="btn btn-sm ml-3 p-1" data-toggle="collapse" data-target="#collapsenew{{ $opinion->id }}" aria-expanded="true" aria-controls="collapsenew{{ $opinion->id }}">
                     <li class="fa fa-plus-square">
@@ -53,8 +54,12 @@
                     </form>
                 </div>
             </div>
+            @endcan
         </div>
     @empty
         <p>(Aucune opinion n'a été soumise pour l'instant sur ce sujet)</p>
     @endforelse
+    @cannot('comment',\App\Models\Opinion::class)
+        <p class="small light-blue-text mt-5">Vous n'avez pas encore posté assez d'opinions ({{ Auth::user()->opinions->count() }}) pour être autorisé à commenter</p>
+    @endcannot
 @endsection

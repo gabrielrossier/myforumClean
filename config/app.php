@@ -97,6 +97,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Min Opinions For Comments
+    |--------------------------------------------------------------------------
+    |
+    | The minimum number of opinions a user must have posted on the forum
+    | before he is allowed to post comments on other people's opinion
+    |
+    */
+
+    'min_opinions_for_comments' => 4,
+
+    /*
+    |--------------------------------------------------------------------------
     | Faker Locale
     |--------------------------------------------------------------------------
     |
