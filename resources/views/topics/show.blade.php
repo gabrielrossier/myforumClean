@@ -29,31 +29,31 @@
                 </div>
             @endif
             @can('comment',\App\Models\Opinion::class)
-            <div id="accordionnew{{ $opinion->id }}">
-                <button class="btn btn-sm ml-3 p-1" data-toggle="collapse" data-target="#collapsenew{{ $opinion->id }}" aria-expanded="true" aria-controls="collapsenew{{ $opinion->id }}">
-                    <li class="fa fa-plus-square">
-                </button>
-                <div id="collapsenew{{ $opinion->id }}" class="collapse" data-parent="#accordionnew{{ $opinion->id }}">
-                    <form action="{{ route('opinions.comment') }}" method="post">
-                        @csrf
-                        <div class="row">
-                            <label class="form-control col-2 text-right border-0">Commentaire</label>
-                            <textarea class="form-control col-10" name="newcomm"></textarea><br>
-                        </div>
-                        <div class="row">
-                            <label class="form-control col-2 text-right border-0">Points</label>
-                            <input class="form-control col-1" type="number" max="1" min="-1" name="points">
-                        </div>
-                        <div class="row">
-                            <div class="col-2"></div>
-                            <div class="col-2">
-                                <button class="btn btn-success btn-sm" type="submit">Envoyer</button>
+                <div id="accordionnew{{ $opinion->id }}">
+                    <button class="btn btn-sm ml-3 p-1" data-toggle="collapse" data-target="#collapsenew{{ $opinion->id }}" aria-expanded="true" aria-controls="collapsenew{{ $opinion->id }}">
+                        <li class="fa fa-plus-square">
+                    </button>
+                    <div id="collapsenew{{ $opinion->id }}" class="collapse" data-parent="#accordionnew{{ $opinion->id }}">
+                        <form action="{{ route('opinions.comment') }}" method="post">
+                            @csrf
+                            <div class="row">
+                                <label class="form-control col-2 text-right border-0">Commentaire</label>
+                                <textarea class="form-control col-10" name="newcomm"></textarea><br>
                             </div>
-                        </div>
-                        <input type="hidden" name="opinion" value="{{ $opinion->id }}">
-                    </form>
+                            <div class="row">
+                                <label class="form-control col-2 text-right border-0">Points</label>
+                                <input class="form-control col-1" type="number" max="1" min="-1" name="points">
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-2">
+                                    <button class="btn btn-success btn-sm" type="submit">Envoyer</button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="opinion" value="{{ $opinion->id }}">
+                        </form>
+                    </div>
                 </div>
-            </div>
             @endcan
         </div>
     @empty
