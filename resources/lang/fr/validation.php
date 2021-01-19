@@ -90,6 +90,7 @@ return [
         'string' => 'Le champ :attribute doit faire au moins :min caractères de long.',
         'array' => 'The :attribute must have at least :min items.',
     ],
+    'simplistic' => 'Ah ! non ! c’est un peu court, jeune homme !',
     'multiple_of' => 'The :attribute must be a multiple of :value',
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',

@@ -35,6 +35,6 @@ class ElaboratedComment implements Rule
      */
     public function message()
     {
-        return 'Ah ! non ! c’est un peu court, jeune homme !';
+        return __('validation.simplistic');
     }
 }
