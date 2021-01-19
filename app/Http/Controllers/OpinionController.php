@@ -91,6 +91,9 @@ class OpinionController extends Controller
      */
     public function newComment(Request $request)
     {
+        $validated = $request->validate([
+            'newcomm' => 'required|min:25'
+        ]);
         $opinion = Opinion::find($request->input('opinion'));
         $opinion->comments()->attach(Auth::user(),['comment' => $request->input('newcomm'),'points' => $request->input('points')]);
         return redirect(route('topics.show',$opinion->topic))->with('message','Commentaire enregistré');

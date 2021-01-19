@@ -1,6 +1,15 @@
 @extends ('layout')
 
 @section ('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <h3 class="p-2">Discussion autour du sujet "{{ $topic->description }}" dans le cadre du thème {{ $topic->theme->name }}:</h3>
     <div class="small mb-3">Proposé par {{ $topic->user->pseudo }}</div>
     @forelse ($topic->opinions as $opinion)
