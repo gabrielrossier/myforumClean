@@ -109,6 +109,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Min Words in Comments
+    |--------------------------------------------------------------------------
+    |
+    | The minimum number of words a comment must contain in order to be
+    | considered sufficiently elaborated to be worth posting
+    |
+    */
+
+    'min_words_in_comments' => 5,
+
+    /*
+    |--------------------------------------------------------------------------
     | Faker Locale
     |--------------------------------------------------------------------------
     |
