@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Opinion;
+use App\Policies\AdminPolicy;
 use App\Policies\OpinionPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
@@ -27,9 +28,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        Gate::define('manage', function () {
-            return Auth::user() && Auth::user()->role->slug == 'ADMI';
-        });
+        Gate::define('manage', [AdminPolicy::class, 'manage']);
     }
 }
