@@ -2,6 +2,8 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use App\Models\User;
+use App\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,14 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('make:adminuser {user_id}', function ($user_id) {
+    $user = User::find($user_id);
+    if ($user) {
+        $user->role()->associate(Role::where('slug','ADMI')->first());
+        $user->save();
+        echo $user->pseudo." is now an admin\n";
+    } else {
+        echo "user $user_id not found\n";
+    }
+})->purpose('identify a user as admin');
