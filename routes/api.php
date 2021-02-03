@@ -6,6 +6,7 @@ use App\Http\Controllers\API\ReferenceController;
 use App\Http\Controllers\API\ThemeController;
 use \App\Http\Controllers\API\TopicController;
 use \App\Http\Controllers\API\OpinionController;
+use App\Http\Controllers\API\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,4 @@ Route::resources([
 Route::get('topics/ofcategory/{id}',[ThemeController::class,'topics']);
 Route::get('messages/oftopic/{id}',[TopicController::class,'opinions']);
 Route::get('replies/tomessage/{id}',[OpinionController::class,'comments']);
+Route::post('trylogin',[AuthController::class,'tryLogin']);
