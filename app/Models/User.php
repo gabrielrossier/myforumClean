@@ -54,6 +54,16 @@ class User extends Authenticatable
     }
 
     /**
+     *
+     */
+    public static function admins()
+    {
+       return User::whereHas('role', function($q) {
+           $q->where('slug','ADMI');
+       })->get();
+    }
+
+    /**
      * Changes the role of the user
      * We can use a toggle as long as our policy remains that a demoted admin becomes a student
      */

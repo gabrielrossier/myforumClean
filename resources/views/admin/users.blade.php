@@ -15,7 +15,9 @@
                             @if($user->isAdmin())
                                 <button class="btn btn-sm btn-warning">Déstituer</button>
                             @else
-                                <button class="btn btn-sm btn-primary">Nommer</button>
+                                @if(\App\Models\User::admins()->count() < 5)
+                                    <button class="btn btn-sm btn-primary">Nommer</button>
+                                @endif
                             @endif
                         </form>
                     @endif
