@@ -9,19 +9,15 @@
                 <div class="col-2">{{ $user->role->name }}</div>
                 <div class="col-1">
                     @if($user->id != Auth::user()->id)
-                        @if($user->isAdmin())
-                            <form method="post" action="{{ route('admin.demote') }}">
-                                @csrf
-                                <input type="hidden" name="userid" value="{{ $user->id }}">
+                        <form method="post" action="{{ route('admin.togglerole') }}">
+                            @csrf
+                            <input type="hidden" name="userid" value="{{ $user->id }}">
+                            @if($user->isAdmin())
                                 <button class="btn btn-sm btn-warning">Déstituer</button>
-                            </form>
-                        @else
-                            <form method="post" action="{{ route('admin.promote') }}">
-                                @csrf
-                                <input type="hidden" name="userid" value="{{ $user->id }}">
+                            @else
                                 <button class="btn btn-sm btn-primary">Nommer</button>
-                            </form>
-                        @endif
+                            @endif
+                        </form>
                     @endif
                 </div>
             </div>

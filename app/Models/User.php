@@ -53,6 +53,21 @@ class User extends Authenticatable
         return $this->role->slug == 'ADMI';
     }
 
+    /**
+     * Changes the role of the user
+     * We can use a toggle as long as our policy remains that a demoted admin becomes a student
+     */
+    public function toggleRole()
+    {
+        if ($this->isAdmin()) {
+            $newrole = Role::where('slug','STUD')->first();
+        } else {
+            $newrole = Role::where('slug','ADMI')->first();
+        }
+        $this->role()->associate($newrole);
+        $this->save();
+    }
+
     // ============= Relationships
 
     public function opinions()

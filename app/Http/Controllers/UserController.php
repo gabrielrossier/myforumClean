@@ -15,21 +15,11 @@ class UserController extends Controller
         return view('admin.users')->with(compact('users'));
     }
 
-    public function promote(Request $request)
+    public function togglerole(Request $request)
     {
         if (Gate::denies('manage')) return redirect('/')->with('message','No, no, no !!!');
         $user = User::find($request->input('userid'));
-        $user->role()->associate(Role::where('slug','ADMI')->first());
-        $user->save();
-        return redirect(route('admin.users'))->with('message','Ok!');
-    }
-
-    public function demote(Request $request)
-    {
-        if (Gate::denies('manage')) return redirect('/')->with('message','No, no, no !!!');
-        $user = User::find($request->input('userid'));
-        $user->role()->associate(Role::where('slug','STUD')->first());
-        $user->save();
+        $user->togglerole();
         return redirect(route('admin.users'))->with('message','Ok!');
     }
 

@@ -32,8 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::Resource('themes', ThemeController::class);
     Route::Resource('topics', TopicController::class);
     Route::get('admin/users',[UserController::class,'manageAdmin'])->name('admin.users');
-    Route::post('admin/promote',[UserController::class,'promote'])->name('admin.promote');
-    Route::post('admin/demote',[UserController::class,'demote'])->name('admin.demote');
+    Route::post('admin/togglerole',[UserController::class,'togglerole'])->name('admin.togglerole');
 });
 
 require __DIR__.'/auth.php';
