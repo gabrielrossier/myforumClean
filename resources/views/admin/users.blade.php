@@ -9,7 +9,7 @@
                 <div class="col-2">{{ $user->role->name }}</div>
                 <div class="col-1">
                     @if($user->id != Auth::user()->id)
-                        @if($user->role->slug == 'ADMI')
+                        @if($user->isAdmin())
                             <form method="post" action="{{ route('admin.demote') }}">
                                 @csrf
                                 <input type="hidden" name="userid" value="{{ $user->id }}">

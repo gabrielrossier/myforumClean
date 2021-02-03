@@ -26,6 +26,6 @@ class AdminPolicy
      */
     public function manage()
     {
-        return Auth::user() && Auth::user()->role->slug == 'ADMI';
+        return Auth::user() && Auth::user()->isAdmin();
     }
 }

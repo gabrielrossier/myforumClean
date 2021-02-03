@@ -44,6 +44,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Tells if that user is an admin or not
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role->slug == 'ADMI';
+    }
+
     // ============= Relationships
 
     public function opinions()
