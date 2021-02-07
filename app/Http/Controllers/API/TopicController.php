@@ -23,6 +23,15 @@ class TopicController extends Controller
     }
 
     /**
+     * Return the 5 hot topics
+     * @return TopicResourceCollection
+     */
+    public function hotOnes()
+    {
+        return new TopicResourceCollection(Topic::inRandomOrder()->limit(5)->get());
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

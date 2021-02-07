@@ -22,6 +22,7 @@ use App\Http\Controllers\API\AuthController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('topics/hot',[TopicController::class,'hotOnes']);
 
 Route::resources([
     'references' => ReferenceController::class,
