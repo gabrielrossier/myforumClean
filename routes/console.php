@@ -23,7 +23,7 @@ Artisan::command('inspire', function () {
 Artisan::command('make:adminuser {user_id}', function ($user_id) {
     $user = User::find($user_id);
     if ($user) {
-        $user->role()->associate(Role::where('slug','ADMI')->first());
+        $user->roles()->attach(Role::where('slug','ADMI')->first());
         $user->save();
         echo $user->pseudo." is now an admin\n";
     } else {
