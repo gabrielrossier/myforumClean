@@ -47,9 +47,9 @@ class RegisteredUserController extends Controller
             'last_name' => $request->lastname,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role_id' => Role::first()->id // TODO replace by selection on a slug
+            
         ]));
-
+        $user->roles()->attach(Role::where('slug','STUD')->first());
         event(new Registered($user));
 
         return redirect(RouteServiceProvider::HOME);
