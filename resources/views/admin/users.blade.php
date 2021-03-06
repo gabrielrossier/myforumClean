@@ -19,12 +19,14 @@
                             @csrf
                             <input type="hidden" name="userid" value="{{ $user->id }}">
                             <div class="row">
-                            <button class="btn btn-sm btn-primary">Attribuer / enlever</button>
-                            <select id="roles" name="roles">
-                                @foreach(\App\Models\Role::all() as $role)
-                                    <option name="{{$role->slug}}" id="{{$role->slug}}">{{$role->slug}}</option>
-                                @endforeach
-                            </select>
+                                <select id="roles" name="roles">
+                                    @foreach(\App\Models\Role::all() as $role)
+                                        <option name="{{$role->slug}}" id="{{$role->slug}}">{{$role->slug}}</option>
+                                    @endforeach
+                                </select>
+                                <div class=col-1>
+                                    <button class="btn btn-sm btn-primary">Attribuer / enlever</button>
+                                </div>
                             </div>
                             
                         </form>
