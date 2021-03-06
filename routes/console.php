@@ -25,8 +25,8 @@ Artisan::command('make:adminuser {user_id}', function ($user_id) {
     if ($user) {
         $user->roles()->attach(Role::where('slug','ADMI')->first());
         $user->save();
-        echo $user->pseudo." is now an admin\n";
+        echo $user->pseudo." est maintenant admin\n";
     } else {
-        echo "user $user_id not found\n";
+        echo "L'utilisateur $user_id n'existe pas\n";
     }
-})->purpose('identify a user as admin');
+})->purpose('Grant the admin role to a user');
