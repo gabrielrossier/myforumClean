@@ -50,7 +50,11 @@ class User extends Authenticatable
      */
     public function isAdmin()
     {
-        return $this->role->slug == 'ADMI';
+        if($this->roles()->where('slug','ADMI')->first() != null)
+        {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -58,7 +62,7 @@ class User extends Authenticatable
      */
     public static function admins()
     {
-       return User::whereHas('role', function($q) {
+       return User::whereHas('roles', function($q) {
            $q->where('slug','ADMI');
        })->get();
     }
@@ -67,14 +71,16 @@ class User extends Authenticatable
      * Changes the role of the user
      * We can use a toggle as long as our policy remains that a demoted admin becomes a student
      */
-    public function toggleRole()
+    public function toggleRole($roleName)
     {
-        if ($this->isAdmin()) {
-            $newrole = Role::where('slug','STUD')->first();
-        } else {
-            $newrole = Role::where('slug','ADMI')->first();
+
+        if($this->roles()->where('slug',$roleName)->first() != null )
+        {
+            $this->roles()->where('slug',$roleName)->detach(Role::where('slug',$roleName)->first());
         }
-        $this->role()->associate($newrole);
+        else{
+            $this->roles()->attach(Role::where('slug',$roleName)->first());
+        }
         $this->save();
     }
 

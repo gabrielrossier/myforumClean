@@ -6,21 +6,28 @@
         @foreach($users as $user)
             <div class="row">
                 <div class="col-2">{{ $user->pseudo }}</div>
-                <div class="col-2">{{ $user->role->name }}</div>
+                <div class="col-2">
+
+                @foreach($user->roles as $role)
+                    <p>{{$role->name}} </p>
+                
+                @endforeach
+                </div>
                 <div class="col-1">
-                    @if($user->id != Auth::user()->id)
+                    
                         <form method="post" action="{{ route('admin.togglerole') }}">
                             @csrf
                             <input type="hidden" name="userid" value="{{ $user->id }}">
-                            @if($user->isAdmin())
-                                <button class="btn btn-sm btn-warning">Déstituer</button>
-                            @else
-                                @if(\App\Models\User::admins()->count() < 5)
-                                    <button class="btn btn-sm btn-primary">Nommer</button>
-                                @endif
-                            @endif
+                            <div class="row">
+                            <button class="btn btn-sm btn-primary">Attribuer / enlever</button>
+                            <select id="roles" name="roles">
+                                @foreach(\App\Models\Role::all() as $role)
+                                    <option name="{{$role->slug}}" id="{{$role->slug}}">{{$role->slug}}</option>
+                                @endforeach
+                            </select>
+                            </div>
+                            
                         </form>
-                    @endif
                 </div>
             </div>
         @endforeach
