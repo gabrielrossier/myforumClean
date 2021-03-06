@@ -28,7 +28,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'XCL',
                 'email' => 'XCL@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 1,
             ),
             1 =>
             array (
@@ -38,7 +37,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'DID',
                 'email' => 'DID@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             2 =>
             array (
@@ -48,7 +46,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'a-que-duc',
                 'email' => 'a-que-duc@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             3 =>
             array (
@@ -58,7 +55,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'GRR',
                 'email' => 'GRR@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             4 =>
             array (
@@ -68,7 +64,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'alexandre',
                 'email' => 'alexandre@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             5 =>
             array (
@@ -78,7 +73,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'CGE',
                 'email' => 'CGE@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             6 =>
             array (
@@ -88,7 +82,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'DOS',
                 'email' => 'DOS@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             7 =>
             array (
@@ -98,7 +91,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'SSH',
                 'email' => 'SSH@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             8 =>
             array (
@@ -108,7 +100,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'ASO',
                 'email' => 'ASO@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             9 =>
             array (
@@ -118,7 +109,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'SS',
                 'email' => 'SS@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             10 =>
             array (
@@ -128,7 +118,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'MBU',
                 'email' => 'MBU@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             11 =>
             array (
@@ -138,7 +127,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => '1450',
                 'email' => '1450@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
             12 =>
             array (
@@ -148,7 +136,6 @@ class UsersTableSeeder extends Seeder
                 'pseudo' => 'WHN',
                 'email' => 'WHN@myforum.ch',
                 'password' => Hash::make('Pa$$w0rd'),
-                'role_id' => 2,
             ),
         ));
 
